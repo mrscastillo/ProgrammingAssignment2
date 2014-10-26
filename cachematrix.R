@@ -1,15 +1,23 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This Function calculates the inverse of a matrix
 
-## Write a short comment describing this function
+
+## This function receive a matrix and save it 
 
 makeCacheMatrix <- function(x = matrix()) {
+     
+          matriz <<- x
 
 }
 
 
-## Write a short comment describing this function
+## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(x ) {
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+     y <- data.matrix(x)
+     if (y == matriz) {
+               inversa
+     } else {          
+          makeCacheMatrix(y)
+          inversa <<- solve(matriz)    
+     }    
 }
