@@ -1,23 +1,35 @@
-## This Function calculates the inverse of a matrix
-
 
 ## This function receive a matrix and save it 
 
 makeCacheMatrix <- function(x = matrix()) {
      
-          matriz <<- x
+	m <- NULL
+	set <- function(y) {
+		x <<- y
+		m <<- NULL	
+	}
+
+	get <- function () x
+
+	setinverse <- function(solve) m<<- solve
+	getinverse <- function() m
+	list(set = set, get = get,
+		setinverse = setinverse,
+		getinverse = getinverse)
 
 }
 
 
 ## Return a matrix that is the inverse of 'x'
-cacheSolve <- function(x ) {
+cacheSolve <- function(x, ...) {
 
-     y <- data.matrix(x)
-     if (y == matriz) {
-               inversa
-     } else {          
-          makeCacheMatrix(y)
-          inversa <<- solve(matriz)    
+     m <- x$getinverse()
+     if (!is.null(m)) {
+		return(m)
+               
+     } else {   
+          	m <- solve(x$get(), ...)
+		x$setinverse(m)
+		m
      }    
 }
